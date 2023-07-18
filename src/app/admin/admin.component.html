@@ -1,0 +1,201 @@
+<mat-toolbar >
+  <mat-tab-group   class="admintabs" (selectedTabChange)="onTabChange($event)">
+    <mat-tab label="Account"></mat-tab>
+    <mat-tab label="DellManager"></mat-tab>
+    <mat-tab label="Domain"></mat-tab>
+    <mat-tab label="Location"></mat-tab>
+    <mat-tab label="Registration"></mat-tab>
+    <mat-tab label="Region"></mat-tab>
+    <mat-tab label="Recruiter"></mat-tab>
+    <mat-tab label="Technology"></mat-tab>
+    <mat-tab label="USTPOC"></mat-tab>
+    <mat-tab label="USTTPM"></mat-tab>
+  </mat-tab-group>
+</mat-toolbar>
+<div class="table-container" *ngIf="selectedTab === 'Account'">
+  <div class="center-table">
+    <table mat-table [dataSource]="accountList" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="AccountName">
+        <th mat-header-cell *matHeaderCellDef class="colname" mat-sort-header>Account Name</th>
+        <td mat-cell *matCellDef="let accountList">{{ accountList.accountName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef class="colname">Actions</th>
+        <td mat-cell *matCellDef="let accountList">
+          <button mat-icon-button color="primary" (click)="editAccount(accountList)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteAccount(accountList)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['AccountName', 'Actions']"></tr>
+      <tr mat-row *matRowDef="let accountList; columns: ['AccountName', 'Actions']"></tr>
+    </table>
+  </div>
+</div>
+
+
+<div class="table-container" *ngIf="selectedTab === 'DellManager'">
+  <div class="center-table">
+    <table mat-table [dataSource]="dellManagerList" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="DellManagerName">
+        <th mat-header-cell *matHeaderCellDef class="colname" mat-sort-header>Dell Manger Name</th>
+        <td mat-cell *matCellDef="let dellManagerList">{{ dellManagerList.dellManagerName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef class="colname">Actions</th>
+        <td mat-cell *matCellDef="let dellManagerList">
+          <button mat-icon-button color="primary" (click)="editAccount(dellManagerList)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteAccount(dellManagerList)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['DellManagerName', 'Actions']"></tr>
+      <tr mat-row *matRowDef="let dellManagerList; columns: ['DellManagerName', 'Actions']"></tr>
+    </table>
+  </div>
+</div>
+
+
+<div class="table-container" *ngIf="selectedTab === 'Recruiter'">
+  <div class="center-table">
+    <table mat-table [dataSource]="recruiterList" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="RecruiterName">
+        <th mat-header-cell *matHeaderCellDef class="colname" mat-sort-header>Recruiter Name</th>
+        <td mat-cell *matCellDef="let recruiterList">{{ recruiterList.recruiterName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef class="colname">Actions</th>
+        <td mat-cell *matCellDef="let recruiterList">
+          <button mat-icon-button color="primary" (click)="editAccount(recruiterList)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteAccount(recruiterList)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['RecruiterName', 'Actions']"></tr>
+      <tr mat-row *matRowDef="let recruiterList; columns: ['RecruiterName', 'Actions']"></tr>
+    </table>
+  </div>
+</div>
+
+
+<div class="table-container" *ngIf="selectedTab === 'USTPOC'">
+  <div class="center-table">
+    <table mat-table [dataSource]="ustPocList" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="USTPOCName">
+        <th mat-header-cell *matHeaderCellDef class="colname" mat-sort-header>USTPOC Name</th>
+        <td mat-cell *matCellDef="let ustPocList">{{ ustPocList.ustpocName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef class="colname">Actions</th>
+        <td mat-cell *matCellDef="let ustPocList">
+          <button mat-icon-button color="primary" (click)="editAccount(ustPocList)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteAccount(ustPocList)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['USTPOCName', 'Actions']"></tr>
+      <tr mat-row *matRowDef="let  ustPocList; columns: ['USTPOCName', 'Actions']"></tr>
+    </table>
+  </div>
+</div>
+
+
+<div class="table-container" *ngIf="selectedTab === 'USTTPM'">
+  <div class="center-table">
+    <table mat-table [dataSource]="ustTpmList" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="USTTPMName">
+        <th mat-header-cell *matHeaderCellDef class="colname" mat-sort-header>USTTPM Name</th>
+        <td mat-cell *matCellDef="let ustTpmList">{{ ustTpmList.usttpmName}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef class="colname">Actions</th>
+        <td mat-cell *matCellDef="let ustTpmList">
+          <button mat-icon-button color="primary" (click)="editAccount(ustTpmList)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteAccount(ustTpmList)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['USTTPMName', 'Actions']"></tr>
+      <tr mat-row *matRowDef="let  ustPocList; columns: ['USTTPMName', 'Actions']"></tr>
+    </table>
+  </div>
+</div>
+
+<div class="table-container" *ngIf="selectedTab === 'Region'">
+  <div class="center-table">
+    <table mat-table [dataSource]="regionList" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="RegionName">
+        <th mat-header-cell *matHeaderCellDef class="colname" mat-sort-header>Region Name</th>
+        <td mat-cell *matCellDef="let regionList">{{ regionList.region}}</td>
+      </ng-container>
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef class="colname">Actions</th>
+        <td mat-cell *matCellDef="let regionList">
+          <button mat-icon-button color="primary" (click)="editAccount(regionList)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteAccount(regionList)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['RegionName', 'Actions']"></tr>
+      <tr mat-row *matRowDef="let  regionList; columns: ['RegionName', 'Actions']"></tr>
+    </table>
+  </div>
+</div>
+
+
+<div class="table-container" *ngIf="selectedTab === 'Domain'">
+  <div class="center-table">
+    <table mat-table [dataSource]="domainList" matSort class="mat-elevation-z8">
+      <ng-container matColumnDef="DomainName">
+        <th mat-header-cell *matHeaderCellDef class="colname" mat-sort-header>Domain Name</th>
+        <td mat-cell *matCellDef="let domainList">{{ domainList.domainName}}</td>
+      </ng-container>
+      <ng-container matColumnDef="Actions">
+        <th mat-header-cell *matHeaderCellDef class="colname">Actions</th>
+        <td mat-cell *matCellDef="let domainList">
+          <button mat-icon-button color="primary" (click)="editAccount(domainList)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteAccount(domainList)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['DomainName', 'Actions']"></tr>
+      <tr mat-row *matRowDef="let  domainList; columns: ['DomainName', 'Actions']"></tr>
+    </table>
+  </div>
+</div>
+
+
+

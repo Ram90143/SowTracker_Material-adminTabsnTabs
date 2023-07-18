@@ -1,2 +1,1 @@
-# SowTracker_Material-adminTabsnTabs
-adminTabs
+# SOW_Angular_Material
